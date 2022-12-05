@@ -1,0 +1,22 @@
+.column-label {
+    text-align: center;
+}
+
+.col {
+    background-color: lightblue;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.card-title {
+    text-align: left;
+}
+
+.card-subtitle {
+    text-align: left;
+}
+
+.card-body {
+    text-align: left;
+}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}T-Issue{% endblock title %}
+
+{% block content %}
+<h1>Tracking Issues</h1>
+<div class="container text-center">
+    <div class="row align-items-start">
+      <div class="col">
+        <h2 class="column-label">TO-DO</h2>
+        {% for issue in to_do_list %}
+        <a href="{% url 'issue_detail' issue.id %}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ issue.summary | truncatechars:150 }}</h5>
+                    <h6 class="card-subtitle">
+                        <small>Reported by: {{ issue.reporter }}</small>
+                    </h6>
+                    <p class="card-body">
+                        {{ issue.description | truncatechars:250 }}
+                    </p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="col">
+            <h2 class="column-label">IN PROGRESS</h2>
+            {% for issue in in_p_list %}
+            <a href="{% url 'issue_detail' issue.id %}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ issue.summary | truncatechars:150 }}</h5>
+                    <h6 class="card-subtitle">
+                        <small>Reported by: {{ issue.reporter }}</small>
+                    </h6>
+                    <p class="card-body">
+                        {{ issue.description | truncatechars:250 }}
+                    </p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="col">
+        <h2 class="column-label">COMPLETED</h2>
+        {% for issue in done_list %}
+        <a href="{% url 'issue_detail' issue.id %}">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ issue.summary | truncatechars:150 }}</h5>
+                    <h6 class="card-subtitle">
+                        <small>Reported by: {{ issue.reporter }}</small>
+                    </h6>
+                    <p class="card-body">
+                        {{ issue.description | truncatechars:250 }}
+                    </p>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+      </div>
+    </div>
+    
+
+{% endblock content %}
